@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Калькулятор тура — Компас Тревел</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <main class="card">
+    <header class="card__header">
+      <p class="card__brand">Компас Тревел</p>
+      <h1>Калькулятор стоимости тура</h1>
+      <p class="card__lead">Выберите направление, укажите количество дней и число туристов — примерная стоимость посчитается сразу.</p>
+    </header>
+
+    <form class="form" id="calc-form" novalidate>
+      <div class="field">
+        <label for="direction">Направление</label>
+        <select id="direction" name="direction"></select>
+      </div>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="days">Количество дней</label>
+          <input type="number" id="days" name="days" min="1" max="365" step="1" value="7" inputmode="numeric">
+        </div>
+
+        <div class="field">
+          <label for="tourists">Число туристов</label>
+          <input type="number" id="tourists" name="tourists" min="1" max="60" step="1" value="2" inputmode="numeric">
+        </div>
+      </div>
+    </form>
+
+    <section class="result" id="result" aria-live="polite">
+      <p class="result__hint" id="result-hint"></p>
+      <div class="result__total" id="result-total" hidden>
+        <p class="result__caption">Примерная стоимость поездки</p>
+        <p class="result__sum" id="total-sum"></p>
+        <p class="result__per-person" id="per-person"></p>
+        <table class="breakdown">
+          <caption class="breakdown__caption">Из чего складывается</caption>
+          <thead>
+            <tr>
+              <th scope="col">Статья расходов</th>
+              <th scope="col">Расчёт</th>
+              <th scope="col" class="breakdown__amount">Сумма</th>
+            </tr>
+          </thead>
+          <tbody id="breakdown-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <footer class="card__footer">
+      <p>Расчёт предварительный: ориентируйтесь на него при первом разговоре с клиентом. Точную стоимость подтверждает менеджер.</p>
+    </footer>
+  </main>
+
+  <script src="prices.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
